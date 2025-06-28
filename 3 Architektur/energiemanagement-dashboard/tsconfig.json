@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
+    "target": "ES2016",
+    "lib": ["ES2016", "DOM"],
+    "module": "commonjs",
     "outDir": "./public",
-    "rootDir": "./src",
+    "rootDir": ".",
     "moduleResolution": "node",
-    "strict": true
+    "strict": true,
+    "esModuleInterop": true,
+    "types": ["jest"],
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"],
+  "include": ["src", "Test"],
   "exclude": ["node_modules"]
 }

@@ -5,9 +5,8 @@ interface Measurement {
   timestamp: number;
   value: number;
 }
-
-import { Subject } from "../observer/Subject.js";
-import { AnalysisStrategy } from "../strategy/AnalysisStrategy.js";
+import { Subject } from "../observer/Subject";
+import { AnalysisStrategy } from "../strategy/AnalysisStrategy";
 
 /**
  * Repräsentiert ein Gerät, das Messwerte aufnimmt und analysiert.

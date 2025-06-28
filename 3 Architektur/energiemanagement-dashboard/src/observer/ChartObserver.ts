@@ -184,7 +184,7 @@ export class ChartObserver implements Observer {
     const converted = values.map(v => v * factor);
 
     // Berechnung der Analysewerte
-    const latest = converted.at(-1) ?? 0;
+    const latest = converted.length > 0 ? converted[converted.length - 1] : 0;
     const avg = converted.length ? converted.reduce((a, b) => a + b, 0) / converted.length : 0;
     const peak = converted.length ? Math.max(...converted) : 0;
 
