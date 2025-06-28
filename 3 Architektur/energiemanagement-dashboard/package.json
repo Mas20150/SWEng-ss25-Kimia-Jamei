@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "lite-server",
+    "dev": "vite",
     "test": "jest"
   },
   "keywords": [],
