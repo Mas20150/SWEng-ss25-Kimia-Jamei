@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: '3 Architektur/energiemanagement-dashboard'
+
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v3
@@ -19,13 +23,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: 📂 In Projektordner wechseln
-        run: cd '3 Architektur/energiemanagement-dashboard'
-
       - name: 📦 Abhängigkeiten installieren
         run: npm install
-        working-directory: '3 Architektur/energiemanagement-dashboard'
 
       - name: 🧪 Tests ausführen
         run: npm test
-        working-directory: '3 Architektur/energiemanagement-dashboard'
