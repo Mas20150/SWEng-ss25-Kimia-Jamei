@@ -2,11 +2,11 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testMatch: ['**/Test/**/*.test.ts'],  
-  testPathIgnorePatterns: ['/node_modules/', '/dist/', '/public/'],
+  testMatch: ["**/Test/**/*.test.ts"],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest"
+  },
   moduleFileExtensions: ['ts', 'js', 'json'],
-  testEnvironment: "jsdom",
-
 };
 
 export default {

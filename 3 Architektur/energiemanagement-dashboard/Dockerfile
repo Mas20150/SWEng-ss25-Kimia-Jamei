@@ -1,18 +1,18 @@
-# 1. Basis-Image
-FROM node:20-alpine
+# 1. Schritt: Image vorbereiten
+FROM node:20
 
-# 2. Arbeitsverzeichnis erstellen
+# 2. Arbeitsverzeichnis im Container
 WORKDIR /app
 
-# 3. Abhängigkeiten kopieren und installieren
+# 3. Kopiere package.json und installiere dependencies
 COPY package*.json ./
 RUN npm install
 
-# 4. Code kopieren
+# 4. Kopiere den gesamten Code
 COPY . .
 
-# 5. Build (optional, wenn du z. B. Vite verwendest)
-# RUN npm run build
+# 5. Baue TypeScript falls nötig (hier nur optional)
+RUN npm run build
 
-# 6. Starten mit z. B. vite oder einem Static Server
-CMD ["npm", "run", "dev"]
+# 6. Starte das Projekt z.B. mit lite-server
+CMD ["npm", "run", "start"]

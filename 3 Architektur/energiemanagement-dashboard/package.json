@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "lite-server",
-    "dev": "vite",
+  "dev": "vite",
+  "start": "vite",
     "test": "jest"
   },
   "keywords": [],
