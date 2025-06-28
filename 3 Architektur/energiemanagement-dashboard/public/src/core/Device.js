@@ -1,9 +1,17 @@
-import { Subject } from "../observer/Subject.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Device = void 0;
+const Subject_1 = require("../observer/Subject");
 /**
  * Repräsentiert ein Gerät, das Messwerte aufnimmt und analysiert.
  * Es erbt vom Subject, sodass es Observer über neue Messwerte informieren kann.
  */
-export class Device extends Subject {
+class Device extends Subject_1.Subject {
+    name;
+    energyType;
+    measurements = [];
+    strategy;
+    unit = "W";
     /**
      * Erstellt ein neues Device.
      *
@@ -15,8 +23,6 @@ export class Device extends Subject {
         super();
         this.name = name;
         this.energyType = energyType;
-        this.measurements = [];
-        this.unit = "";
         this.strategy = defaultStrategy;
     }
     /**
@@ -101,3 +107,4 @@ export class Device extends Subject {
         this.unit = unit;
     }
 }
+exports.Device = Device;

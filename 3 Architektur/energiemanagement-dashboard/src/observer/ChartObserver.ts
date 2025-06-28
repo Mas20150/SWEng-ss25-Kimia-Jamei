@@ -178,32 +178,29 @@ export class ChartObserver implements Observer {
     const values = this.currentFilterMinutes === Infinity
       ? this.device.getMeasurements().map(m => m.value)
       : this.device.getMeasurementsInRange(this.currentFilterMinutes);
-
-    // Umrechnungsfaktor je nach gewählter Einheit
+  
     const factor = this.unit === "kWh" ? 0.001 : this.unit === "J" ? 3600 : 1;
     const converted = values.map(v => v * factor);
-
-    // Berechnung der Analysewerte
+  
     const latest = converted.length > 0 ? converted[converted.length - 1] : 0;
     const avg = converted.length ? converted.reduce((a, b) => a + b, 0) / converted.length : 0;
     const peak = converted.length ? Math.max(...converted) : 0;
-
-    // Chart-Daten aktualisieren
+  
     this.chart.data.labels = values.map((_, i) => i.toString());
     this.chart.data.datasets[0].data = converted;
-    this.chart.data.datasets[0].label = `Verbrauch (${this.unit})`;
     this.chart.update();
-
-    // Statistiken in die UI schreiben
+  
     this.valueEl.textContent = latest.toFixed(1);
     this.avgEl.textContent = avg.toFixed(1);
     this.peakEl.textContent = peak.toFixed(1);
     this.energyTypeEl.textContent = `Typ: ${this.device.getEnergyType()}`;
-
-    // Einheit im Text "Aktuell: ..." aktualisieren
-    this.box.querySelector(".unit")!.textContent = this.unit;
+  
+    const unitSpan = this.box.querySelector(".unit")!;
+    unitSpan.textContent = ["W", "kWh", "J"].includes(this.unit) ? this.unit : "";
+  
     this.updateAnalysis();
   }
+  
 
   /**
  * Führt die Analyse mit aktueller Strategy aus

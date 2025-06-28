@@ -1,0 +1,29 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Quellcode holen
+        uses: actions/checkout@v3
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Abhängigkeiten installieren
+        run: npm install
+
+      - name: TypeScript kompilieren
+        run: npx tsc --noEmit
+
+      - name: Tests ausführen
+        run: npm test

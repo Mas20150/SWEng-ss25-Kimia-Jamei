@@ -15,7 +15,7 @@ import { AnalysisStrategy } from "../strategy/AnalysisStrategy";
 export class Device extends Subject {
   private measurements: Measurement[] = [];
   private strategy: AnalysisStrategy;
-  private unit: string = "Watt";
+  private unit: string = "W";
 
   /**
    * Erstellt ein neues Device.
