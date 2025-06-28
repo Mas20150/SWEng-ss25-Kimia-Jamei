@@ -8,3 +8,12 @@ module.exports = {
   testEnvironment: "jsdom",
 
 };
+
+export default {
+  roots: ["<rootDir>/Test"],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  testEnvironment: "jsdom"
+};
+

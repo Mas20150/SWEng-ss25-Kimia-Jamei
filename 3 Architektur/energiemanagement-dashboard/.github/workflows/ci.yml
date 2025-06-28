@@ -1,26 +1,26 @@
-name: Run Tests and Build
+name: Test und Build Energiemanagement-Dashboard
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧾 Code auschecken
+      - name: 📦 Checkout Code
         uses: actions/checkout@v3
 
-      - name: 📦 Node.js Setup
+      - name: ⚙️ Node.js einrichten
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: 🧪 Abhängigkeiten installieren
+      - name: 📥 Abhängigkeiten installieren
         run: npm install
 
       - name: 🧪 Tests ausführen
-        run: npm run test
+        run: npm test
