@@ -2,12 +2,13 @@
   "name": "energiemanagement-dashboard",
   "version": "1.0.0",
   "description": "Dashboard zur Visualisierung des Energieverbrauchs",
-  "main": "dist/index.js",
+  "main": "public/main.js",
+  "homepage": "https://Mas20150.github.io/SWEng-ss25-Kimia-Jamei/",
   "scripts": {
     "build": "tsc",
-    "start": "lite-server",
-    "dev": "vite",
-    "test": "jest"
+    "start": "npm run build && lite-server",
+    "test": "jest",
+    "dev": "tsc --watch"
   },
   "keywords": [],
   "author": "Kimia",
@@ -28,6 +29,7 @@
       "baseDir": "./public",
       "host": "0.0.0.0",
       "port": 3000
-    }
+    },
+    "watch": ["./public"]
   }
 }

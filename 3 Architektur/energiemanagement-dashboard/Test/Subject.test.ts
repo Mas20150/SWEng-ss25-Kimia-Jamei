@@ -1,6 +1,5 @@
 import { Subject } from "../src/observer/Subject";
 import { Device } from "../src/core/Device";
-import { AnalysisStrategy } from "../src/strategy/AnalysisStrategy";
 
 /**
  * Dummy Observer für Tests – speichert das letzte empfangene Value.
