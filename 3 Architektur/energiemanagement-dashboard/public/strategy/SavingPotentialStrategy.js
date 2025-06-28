@@ -13,6 +13,6 @@ export class SavingPotentialStrategy {
         const sum = data.reduce((acc, v) => acc + v, 0);
         const avg = sum / data.length;
         const potential = avg * 0.2;
-        return `Sparpotenzial: ~${potential.toFixed(1)} W`;
+        return `Sparpotenzial: ~${potential.toFixed(1)} `;
     }
 }

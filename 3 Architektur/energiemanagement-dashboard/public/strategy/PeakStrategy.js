@@ -11,6 +11,6 @@ export class PeakStrategy {
             return "Keine Daten";
         }
         const peak = Math.max(...data);
-        return `Spitzenwert: ${peak} W`;
+        return `Spitzenwert: ${peak} `;
     }
 }

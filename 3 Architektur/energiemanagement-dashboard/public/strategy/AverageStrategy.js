@@ -11,6 +11,6 @@ export class AverageStrategy {
         }
         const sum = data.reduce((acc, v) => acc + v, 0);
         const avg = sum / data.length;
-        return `Durchschnitt: ${avg.toFixed(1)} W`;
+        return `Durchschnitt: ${avg.toFixed(1)} `;
     }
 }
