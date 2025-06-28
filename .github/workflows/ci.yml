@@ -1,4 +1,4 @@
-name: CI Pipeline for EnergieDashboard
+name: CI/CD Pipeline for EnergieDashboard
 
 on:
   push:
@@ -9,13 +9,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: '3 Architektur/energiemanagement-dashboard'
-
     steps:
-      - name: 📥 Checkout Code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: 🛠 Node.js Setup
@@ -23,8 +21,37 @@ jobs:
         with:
           node-version: 20
 
-      - name: 📦 Abhängigkeiten installieren
+      - name: Abhängigkeiten installieren
         run: npm install
 
-      - name: 🧪 Tests ausführen
+      - name:  Tests ausführen
         run: npm test
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: '3 Architektur/energiemanagement-dashboard'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Docker Image bauen
+        run: docker build -t kimia-dashboard .
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: '3 Architektur/energiemanagement-dashboard'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
