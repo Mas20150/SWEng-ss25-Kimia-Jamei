@@ -1,4 +1,4 @@
-name: Test und Build Energiemanagement-Dashboard
+name: Test and Build EnergieDashboard
 
 on:
   push:
@@ -11,16 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📦 Checkout Code
+      - name: 📥 Checkout Code
         uses: actions/checkout@v3
 
-      - name: ⚙️ Node.js einrichten
+      - name: 🔧 Node.js Setup
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: 📥 Abhängigkeiten installieren
+      - name: 📂 In Projektordner wechseln
+        run: cd '3 Architektur/energiemanagement-dashboard'
+
+      - name: 📦 Abhängigkeiten installieren
         run: npm install
+        working-directory: '3 Architektur/energiemanagement-dashboard'
 
       - name: 🧪 Tests ausführen
         run: npm test
+        working-directory: '3 Architektur/energiemanagement-dashboard'
