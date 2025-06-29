@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Energiemanagement Dashboard</title>
+
+  <!-- Font Awesome für Icons (z. B. Energie-Typ Auswahl) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Eigenes Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js für Diagramme (CDN-Einbindung) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Haupttitel des Dashboards -->
+  <h1>Energiemanagement-Dashboard</h1>
+
+  <!-- Formular zum Hinzufügen neuer Geräte -->
+  <form id="add-form">
+    <input type="text" id="device-input" placeholder="Neues Gerät..." required />
+ 
+
+    <button type="submit">Gerät hinzufügen</button>
+  </form>
+
+  <!-- Zwei-Spalten-Layout -->
+  <div id="layout">
+    <!-- Linke Spalte: Übersicht und globale Analyse -->
+    <div id="summary-container">
+      <div class="device-box">
+        <h2>📈 Globale Analyse</h2>
+
+        <!-- Statistiken zur Gesamtauswertung -->
+        <p><strong>Anzahl Geräte:</strong> <span class="sum-devices">-</span></p>
+        <p><strong>Anzahl Messwerte:</strong> <span class="sum-measurements">-</span></p>
+        <p><strong>Höchstwert gesamt:</strong> <span class="sum-peak">-</span> <span class="unit-global">W</span></p>
+        <p><strong>Durchschnitt gesamt:</strong> <span class="sum-avg">-</span> <span class="unit-global">W</span></p>
+        <p><strong>Aktueller Verbrauch gesamt:</strong> <span class="sum-current">-</span> <span class="unit-global">W</span></p>
+        <p><strong>Durchschnitt über alle Geräte:</strong> <span class="global-avg">-</span> <span class="unit-global">W</span></p>
+      </div>
+    </div>
+
+    <!-- Rechte Spalte: Hier erscheinen die Geräte-Boxen -->
+    <div id="dashboard"></div>
+  </div>
+
+  <!-- Hauptmodul (JavaScript-Logik) -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
