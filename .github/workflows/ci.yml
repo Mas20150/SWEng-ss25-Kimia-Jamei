@@ -27,19 +27,6 @@ jobs:
       - name: Unit-Tests ausführen
         run: npm test
 
-  docker:
-    runs-on: ubuntu-latest
-    needs: test
-    defaults:
-      run:
-        working-directory: '3 Architektur/energiemanagement-dashboard'
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Docker Image bauen
-        run: docker build -t energiemanagement-dashboard .
-
   deploy:
     runs-on: ubuntu-latest
     needs: test
